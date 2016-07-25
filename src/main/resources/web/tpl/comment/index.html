@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>commnet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	<input id="txt_remark" type="text" value=""/>
+	<input type="button" id="btn" value="submit"/>
+	<script src="/js/jquery-1.11.2.min.js"></script>	
+	<script>
+	$('#btn').click(function(event) {
+		$.post('/comment/add?randnum=' + new Date().getTime(), {
+				remark: $('#txt_remark').val()
+			},
+			function(data) {
+				alert(data.msg)
+			});
+	});
+	
+	</script>
+</body>
+</html>
